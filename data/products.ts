@@ -14,6 +14,11 @@ export type Product = {
   charms?: string[];
 };
 
+export const getCategoryBySlug = async (slug: string): Promise<string | undefined> => {
+  const product = products.find(p => p.slug === slug);
+  return Promise.resolve(product?.category);
+};
+
 export const products: Product[] = [
   {
     id: "1",
