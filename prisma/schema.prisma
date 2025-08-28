@@ -72,17 +72,3 @@ enum UserRole {
   USER
   ADMIN
 }
-
-// Add indexes for better query performance
-model _prisma_migrations {
-  id                  String   @id @db.Uuid
-  checksum            String
-  finished_at         DateTime? @map("finished_at") @db.Timestamptz(6)
-  migration_name      String   @map("migration_name")
-  logs                String?  @db.Text
-  rolled_back_at      DateTime? @map("rolled_back_at") @db.Timestamptz(6)
-  started_at          DateTime @default(now()) @map("started_at") @db.Timestamptz(6)
-  applied_steps_count Int      @default(0) @map("applied_steps_count")
-
-  @@map("_prisma_migrations")
-}
